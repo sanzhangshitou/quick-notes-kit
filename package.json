@@ -4,7 +4,7 @@
   "description": "quick-notes-kit",
   "main": "./out/main/index.js",
   "author": "Quick Notes Kit",
-  "homepage": "https://gitee.com/andy1215/quick-notes-kit",
+  "homepage": "https://github.com/sanzhangshitou/quick-notes-kit",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --cache .",
