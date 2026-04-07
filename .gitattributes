@@ -1,0 +1,33 @@
+# Normalize text files by default.
+* text=auto eol=lf
+
+# Keep common source and config files on LF.
+*.ts text eol=lf
+*.vue text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+*.jsonc text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.svg text eol=lf
+*.plist text eol=lf
+
+# Windows command scripts usually expect CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary assets should never be line-normalized.
+*.png binary
+*.ico binary
+*.icns binary
+*.exe binary
+*.dll binary
+*.pak binary
+*.bin binary
+*.dat binary

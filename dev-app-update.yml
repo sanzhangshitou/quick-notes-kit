@@ -1,0 +1,3 @@
+provider: generic
+url: https://qigede.oss-cn-shenzhen.aliyuncs.com/auto-updates
+updaterCacheDirName: quick-notes-kit-updater

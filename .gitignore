@@ -1,0 +1,34 @@
+node_modules
+dist
+out
+.DS_Store
+.eslintcache
+*.log*
+.vscode
+
+# Local app data and temporary exports
+*.sqlite
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+*.db
+*.tmp
+*.temp
+installer.log
+
+# Package and installer artifacts
+*.blockmap
+*.exe
+*.dmg
+*.AppImage
+*.snap
+*.deb
+
+# Electron builder metadata
+builder-debug.yml
+builder-effective-config.yaml
+latest.yml
+
+# OS/editor noise
+Thumbs.db
+Desktop.ini

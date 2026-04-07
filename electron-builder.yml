@@ -1,0 +1,70 @@
+appId: com.quicknoteskit.app
+productName: 轻记工具箱
+directories:
+  buildResources: build
+extraResources:
+  - from: build/win/icon.ico
+    to: icon.ico
+  - from: resources/icon.png
+    to: resources/icon.png
+  - from: resources/tray-icon.png
+    to: resources/tray-icon.png
+files:
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!{.eslintcache,eslint.config.mjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
+  - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
+  - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+asarUnpack:
+  - resources/**
+win:
+  executableName: quick-notes-kit
+  icon: build/win/icon.ico
+nsis:
+  artifactName: ${name}-${version}-setup.${ext}
+  # 使用安装向导模式，而不是一键静默安装。
+  oneClick: false
+  # 允许用户在安装过程中自定义安装目录。
+  allowToChangeInstallationDirectory: true
+  # 默认按当前用户安装，尽量避免强制请求管理员权限。
+  perMachine: false
+  # 如果用户选择了需要管理员权限的目录，允许安装器提权。
+  allowElevation: true
+  shortcutName: ${productName}
+  uninstallDisplayName: ${productName}
+  # 始终创建桌面快捷方式，方便用户启动。
+  createDesktopShortcut: always
+  # 创建开始菜单快捷方式。
+  createStartMenuShortcut: true
+  # 安装完成后提供立即启动选项。
+  runAfterFinish: true
+  # 卸载时默认保留本地 SQLite 数据，避免误删用户内容。
+  deleteAppDataOnUninstall: false
+mac:
+  icon: build/mac/icon.icns
+  entitlementsInherit: build/mac/entitlements.mac.plist
+  extendInfo:
+    - NSCameraUsageDescription: Application requests access to the device's camera.
+    - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
+    - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
+    - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
+  notarize: false
+dmg:
+  artifactName: ${name}-${version}.${ext}
+linux:
+  icon: build/linux/icon.png
+  target:
+    - AppImage
+    - snap
+    - deb
+  maintainer: electronjs.org
+  category: Utility
+appImage:
+  artifactName: ${name}-${version}.${ext}
+npmRebuild: false
+publish:
+  provider: generic
+  url: https://qigede.oss-cn-shenzhen.aliyuncs.com/auto-updates
+electronDownload:
+  mirror: https://npmmirror.com/mirrors/electron/
